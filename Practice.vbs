@@ -20,6 +20,8 @@ End If
 line = "this is the text to look in to, it contains the search pattern"
 Set RE = New RegExp
 RE.IgnoreCase = True
+
+
 RE.Pattern = "search.*tern"
 If RE.Test(Line) Then 
 'WScript.Echo IsNumeric(Line)
