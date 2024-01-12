@@ -9,7 +9,7 @@ Function ShowFreeSpace(drvPath)
    ShowFreeSpace = s
 
 End Function
-s = ShowFreeSpace("D:\")
+'s = ShowFreeSpace("D:\")
 string1= "Deepali is tester"
 If (StrComp(string1, "Deepali")) Then
 	'WScript.Echo "Pass"
@@ -35,5 +35,61 @@ End If
 
 Dim str1: str1 = Null 
 Dim str2: str2 = Null
-WScript.Echo StrComp(str1, str2, 1)
+'WScript.Echo StrComp(str1, str2, 1)
+
+Set objDic= CreateObject("Scripting.Dictionary")
+
+objDic.Add "Item" , 4
+'WScript.Echo objDic.Count
+'WScript.Echo objDic.Exists(4)
+'WScript.Echo objDic.Item("Item")
+
+
+'factorialValue = 1
+
+'userInput = Inputbox ("Enter any number")
+
+'For i = 1 to userInput
+
+'    factorialValue = factorialValue * i 
+'Msgbox  factorialValue
+'Next 
+origStr = "efqieufge933"
+Function singleCharArr(inputString)
+If inputString <> "" Then
+      Dim oRegEx, colChars
+      Set oRegEx = New RegExp
+      oRegEx.Global = True
+      oRegEx.IgnoreCase = True
+      oRegEx.Pattern = ".{1}"
+      Set colChars = oRegEx.Execute(inputString)
+      Dim arrChars()
+      For i = 0 To colChars.Count - 1
+          Redim Preserve arrChars(i)
+          arrChars(i) = colChars.Item(i)
+      Next
+      Set colChars = Nothing
+      Set oRegEx = Nothing
+      singleCharArr = arrChars
+      Erase arrChars
+  End If
+End Function
+
+strAry = singleCharArr(Trim(origStr))
+Dim counts(20) 
+For i = 0 To UBound(StrAry) - 1
+    For j = 0 To UBound(StrAry) - 1
+        If (StrAry(i) = StrAry(j)) Then
+            cnt =cnt+1
+        End If
+        counts(i) = cnt
+    Next
+    cnt = 0
+    If counts(i)>1 Then
+    	'WScript.Echo(strAry(i) &" occurred more than one => " & counts(i))
+    Else
+    	'WScript.Echo(strAry(i)&" occurred once => " & counts(i))
+    End If
+Next
+
 
