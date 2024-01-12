@@ -36,3 +36,4 @@ End If
 Dim str1: str1 = Null 
 Dim str2: str2 = Null
 WScript.Echo StrComp(str1, str2, 1)
+
